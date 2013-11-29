@@ -2,7 +2,7 @@ Feature: German Search
 
 	Scenario Outline: Analyze Köln
 		Given the source text "<Source>"
-		When passing to the "default" analyzer
+		When passing to the "german" analyzer
 		Then "<Result>" should be returned
 
 		Examples:

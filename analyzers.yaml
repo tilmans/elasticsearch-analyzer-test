@@ -3,14 +3,29 @@ analysis:
       germansnow:
          language: "German2"
          type: "snowball"
-      baseform:
+      englishsnow:
+         language: "English"
+         type: "snowball"
+      baseform_de:
          type: 'baseform'
-         langue: 'de'
+         language: 'de'
+      baseform_en:
+         type: 'baseform'
+         language: 'en'
+      stemmer_en:
+         type: 'stemmer'
+         language: 'english'
    analyzer:
       german: 
          filter: 
-            - 'baseform'
+            - 'baseform_de'
             - "germansnow"
+            - "icu_folding"
+         type: "custom"
+         tokenizer: "icu_tokenizer"
+      english: 
+         filter: 
+            - 'baseform_en'
             - "icu_folding"
          type: "custom"
          tokenizer: "icu_tokenizer"
@@ -18,4 +33,5 @@ analysis:
          sub_analyzers:
             - "standard"
             - "german"
+            - "english"
          type: "combo"
